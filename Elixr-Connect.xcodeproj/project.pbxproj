@@ -18,6 +18,9 @@
 		5ADF98C42BEB894B006AABD1 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF98C32BEB894B006AABD1 /* SignupView.swift */; };
 		5ADF98C62BEB8966006AABD1 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF98C52BEB8966006AABD1 /* SignupModel.swift */; };
 		5ADF98C82BEB8D34006AABD1 /* SignupViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF98C72BEB8D34006AABD1 /* SignupViewmodel.swift */; };
+		5AE72A9F2BEC8B63006F480D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE72A9E2BEC8B63006F480D /* UserModel.swift */; };
+		5AE72AA12BECD273006F480D /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE72AA02BECD273006F480D /* UserDetailsView.swift */; };
+		5AE72AA42BECD2EB006F480D /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE72AA32BECD2EB006F480D /* UserDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		5ADF98C32BEB894B006AABD1 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		5ADF98C52BEB8966006AABD1 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		5ADF98C72BEB8D34006AABD1 /* SignupViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewmodel.swift; sourceTree = "<group>"; };
+		5AE72A9E2BEC8B63006F480D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		5AE72AA02BECD273006F480D /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
+		5AE72AA32BECD2EB006F480D /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +89,10 @@
 			isa = PBXGroup;
 			children = (
 				5ADF98932BEB8044006AABD1 /* Elixr_ConnectApp.swift */,
+				5ADF98C02BEB8823006AABD1 /* Login */,
 				5ADF98C22BEB8929006AABD1 /* SignUp */,
 				5ADF98C12BEB882B006AABD1 /* Splash */,
-				5ADF98C02BEB8823006AABD1 /* Login */,
+				5AE72AA22BECD2B5006F480D /* UserDetailsView */,
 				5ADF98922BEB8044006AABD1 /* Elixr-Connect */,
 				5ADF98A42BEB8047006AABD1 /* Elixr-ConnectTests */,
 				5ADF98AE2BEB8047006AABD1 /* Elixr-ConnectUITests */,
@@ -159,8 +166,18 @@
 				5ADF98C32BEB894B006AABD1 /* SignupView.swift */,
 				5ADF98C52BEB8966006AABD1 /* SignupModel.swift */,
 				5ADF98C72BEB8D34006AABD1 /* SignupViewmodel.swift */,
+				5AE72A9E2BEC8B63006F480D /* UserModel.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		5AE72AA22BECD2B5006F480D /* UserDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				5AE72AA02BECD273006F480D /* UserDetailsView.swift */,
+				5AE72AA32BECD2EB006F480D /* UserDetailsViewModel.swift */,
+			);
+			path = UserDetailsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,9 +311,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ADF98C42BEB894B006AABD1 /* SignupView.swift in Sources */,
+				5AE72AA42BECD2EB006F480D /* UserDetailsViewModel.swift in Sources */,
+				5AE72A9F2BEC8B63006F480D /* UserModel.swift in Sources */,
 				5ADF98C62BEB8966006AABD1 /* SignupModel.swift in Sources */,
 				5ADF98C82BEB8D34006AABD1 /* SignupViewmodel.swift in Sources */,
 				5ADF98BF2BEB80D3006AABD1 /* LoginView.swift in Sources */,
+				5AE72AA12BECD273006F480D /* UserDetailsView.swift in Sources */,
 				5ADF98962BEB8044006AABD1 /* SplashScreen.swift in Sources */,
 				5ADF98942BEB8044006AABD1 /* Elixr_ConnectApp.swift in Sources */,
 			);
@@ -466,6 +486,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -494,6 +515,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

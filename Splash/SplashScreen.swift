@@ -14,7 +14,10 @@ struct SplashScreen: View {
     @State var isActive: Bool = false
     
     var body: some View {
-        VStack {
+        ZStack {
+            Color.green
+                .opacity(0.5)
+                .ignoresSafeArea()
             if isActive {
                 LoginView()
             }

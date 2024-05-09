@@ -13,18 +13,21 @@ struct LoginView: View {
     /// State property declarations
     @State var emailIdValue: String = ""
     @State var passwordIdValue: String = ""
+    @State var isSignedUp: Bool = false
     
     var body: some View {
-        ZStack {
-            Color.gray
-                .opacity(0.5)
-                .ignoresSafeArea()
-            VStack {
-                headingTitle
-                emailView
-                passwordView
-                loginButton
-                signInPrompt
+        NavigationStack {
+            ZStack {
+                Color.gray
+                    .opacity(0.5)
+                    .ignoresSafeArea()
+                VStack {
+                    headingTitle
+                    emailView
+                    passwordView
+                    loginButton
+                    signInPrompt
+                }
             }
         }
     }
@@ -82,9 +85,12 @@ struct LoginView: View {
         HStack{
             Text("Don't have an account?")
             Button {
-                
+                isSignedUp.toggle()
             }label: {
                 Text("Sign up")
+            }
+            .navigationDestination(isPresented: $isSignedUp) {
+                SignupView()
             }
         }
     }
