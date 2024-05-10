@@ -11,13 +11,12 @@ import SwiftUI
 struct SignupView: View {
     
     /// Stateobject declarations
-    @StateObject var viewmodelInstance: SignupViewmodel = SignupViewmodel()
+    @ObservedObject var viewmodelInstance: SignupViewModel = SignupViewModel()
     
     /// Declaration of Environment variable .
     @Environment(\.presentationMode) var presentationMode
     
     /// State property declarations.
-    @State var userInputReceiver: String = ""
     @State var phoneNumber: String = ""
     @State var userName: String = ""
     @State var password: String = ""
@@ -31,7 +30,6 @@ struct SignupView: View {
     
     var body: some View {
         VStack {
-            headingView
             userInputFields
             signUpButton
             loginPrompt
@@ -82,7 +80,6 @@ struct SignupView: View {
             else {
                 self.alertMessage = validationResult.message ?? "Invalid Message.."
                 alertBooleanVariable.toggle()
-                signupCompleted.toggle()
             }
         }label: {
             Text("Sign up")

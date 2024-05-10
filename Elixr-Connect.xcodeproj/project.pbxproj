@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AD171E82BEE1B98006B9D74 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD171E72BEE1B98006B9D74 /* LoginViewModel.swift */; };
+		5AD171EA2BEE1BCC006B9D74 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD171E92BEE1BCC006B9D74 /* LoginModel.swift */; };
 		5ADF98942BEB8044006AABD1 /* Elixr_ConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF98932BEB8044006AABD1 /* Elixr_ConnectApp.swift */; };
 		5ADF98962BEB8044006AABD1 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF98952BEB8044006AABD1 /* SplashScreen.swift */; };
 		5ADF98982BEB8047006AABD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ADF98972BEB8047006AABD1 /* Assets.xcassets */; };
@@ -17,7 +19,7 @@
 		5ADF98BF2BEB80D3006AABD1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF98BE2BEB80D3006AABD1 /* LoginView.swift */; };
 		5ADF98C42BEB894B006AABD1 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF98C32BEB894B006AABD1 /* SignupView.swift */; };
 		5ADF98C62BEB8966006AABD1 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF98C52BEB8966006AABD1 /* SignupModel.swift */; };
-		5ADF98C82BEB8D34006AABD1 /* SignupViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF98C72BEB8D34006AABD1 /* SignupViewmodel.swift */; };
+		5ADF98C82BEB8D34006AABD1 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF98C72BEB8D34006AABD1 /* SignupViewModel.swift */; };
 		5AE72A9F2BEC8B63006F480D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE72A9E2BEC8B63006F480D /* UserModel.swift */; };
 		5AE72AA12BECD273006F480D /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE72AA02BECD273006F480D /* UserDetailsView.swift */; };
 		5AE72AA42BECD2EB006F480D /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE72AA32BECD2EB006F480D /* UserDetailsViewModel.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5AD171E72BEE1B98006B9D74 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		5AD171E92BEE1BCC006B9D74 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		5ADF98902BEB8044006AABD1 /* Elixr-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elixr-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADF98932BEB8044006AABD1 /* Elixr_ConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elixr_ConnectApp.swift; sourceTree = "<group>"; };
 		5ADF98952BEB8044006AABD1 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
@@ -54,7 +58,7 @@
 		5ADF98BE2BEB80D3006AABD1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5ADF98C32BEB894B006AABD1 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		5ADF98C52BEB8966006AABD1 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
-		5ADF98C72BEB8D34006AABD1 /* SignupViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewmodel.swift; sourceTree = "<group>"; };
+		5ADF98C72BEB8D34006AABD1 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		5AE72A9E2BEC8B63006F480D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		5AE72AA02BECD273006F480D /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		5AE72AA32BECD2EB006F480D /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				5ADF98BE2BEB80D3006AABD1 /* LoginView.swift */,
+				5AD171E72BEE1B98006B9D74 /* LoginViewModel.swift */,
+				5AD171E92BEE1BCC006B9D74 /* LoginModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -165,7 +171,7 @@
 			children = (
 				5ADF98C32BEB894B006AABD1 /* SignupView.swift */,
 				5ADF98C52BEB8966006AABD1 /* SignupModel.swift */,
-				5ADF98C72BEB8D34006AABD1 /* SignupViewmodel.swift */,
+				5ADF98C72BEB8D34006AABD1 /* SignupViewModel.swift */,
 				5AE72A9E2BEC8B63006F480D /* UserModel.swift */,
 			);
 			path = SignUp;
@@ -313,11 +319,13 @@
 				5ADF98C42BEB894B006AABD1 /* SignupView.swift in Sources */,
 				5AE72AA42BECD2EB006F480D /* UserDetailsViewModel.swift in Sources */,
 				5AE72A9F2BEC8B63006F480D /* UserModel.swift in Sources */,
+				5AD171EA2BEE1BCC006B9D74 /* LoginModel.swift in Sources */,
 				5ADF98C62BEB8966006AABD1 /* SignupModel.swift in Sources */,
-				5ADF98C82BEB8D34006AABD1 /* SignupViewmodel.swift in Sources */,
+				5ADF98C82BEB8D34006AABD1 /* SignupViewModel.swift in Sources */,
 				5ADF98BF2BEB80D3006AABD1 /* LoginView.swift in Sources */,
 				5AE72AA12BECD273006F480D /* UserDetailsView.swift in Sources */,
 				5ADF98962BEB8044006AABD1 /* SplashScreen.swift in Sources */,
+				5AD171E82BEE1B98006B9D74 /* LoginViewModel.swift in Sources */,
 				5ADF98942BEB8044006AABD1 /* Elixr_ConnectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,15 +12,45 @@ struct UserDetailsView: View {
     var body: some View {
         
         List {
-            HStack {
-                ForEach(viewModelInstance.dataProvider,id: \.self) {
-                    details in
-                    Text(details.userName)
-                    Text(details.emailAddress)
-                    Text(details.phoneNumber)
-                }
-                .listStyle(.inset)
+            ForEach(viewModelInstance.dataProvider,id: \.self) {
+                details in
+                RoundedRectangle(cornerRadius: 10.0)
+                    .stroke(style: StrokeStyle())
+                    .frame(width: 340,height: 260)
+                    .overlay {
+                        VStack{
+                            Image(systemName: "person")
+                                .resizable()
+                                .clipShape(Circle())
+                                .scaledToFit()
+                                .frame(width: 50,height: 50)
+                            Text("Username")
+                                .bold()
+                            Text(details.userName)
+                                .padding()
+                            HStack {
+                                VStack{
+                                    Text("Email Address")
+                                        .bold()
+                                    Text(details.emailAddress)
+                                        .font(.subheadline)
+                                }
+                                Spacer()
+                                VStack{
+                                    Text("Personal Number")
+                                        .bold()
+                                    Text(details.phoneNumber)
+                                        .font(.subheadline)
+                                }
+                            }
+                            Spacer()
+                        }
+                        .padding()
+                    }
+                        .listStyle(.inset)
+                    
             }
+            .navigationTitle(Text("User Details View."))
         }
         .onAppear(perform: {
             viewModelInstance.dataReceiver()
