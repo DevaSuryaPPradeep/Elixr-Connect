@@ -14,7 +14,6 @@ class SignupViewmodel: ObservableObject {
     @Published var dataArray: [SignupModel] = [.userName,.emailAddress,.phoneNumber,.password,.confirmPassword]
     @Published var dataSource: [UserModel] = []
     
-    
     /// Function to authenticate user inputs.
     /// - Parameters:
     ///   - userNameDetails: Is  a container that points to the value typed in the user name textfield.
@@ -24,7 +23,6 @@ class SignupViewmodel: ObservableObject {
     ///   - confirmPassword: is a container to hold the value typed in the confirmpassword field.
     /// - Returns: Return a tuple containing a boolean value and a string.
     func authenticate(userNameDetails: String?, emailAddressDetails: String?,passwordDetails: String?,phoneNumberDetails: String?,confirmPassword: String?)-> (isValid: Bool,message: String?) {
-        
         guard let userNameDetails = userNameDetails ,!userNameDetails.isEmpty else {
             return (false,"Username cannot be empty")
         }
@@ -99,9 +97,14 @@ class SignupViewmodel: ObservableObject {
         let digitSet = CharacterSet.decimalDigits
         return !string.isEmpty && string.rangeOfCharacter(from: letterSet) != nil && string.rangeOfCharacter(from: digitSet) != nil
     }
+    
 }
 
 extension String {
+    
+    /// A static varible to store the userdefault key
+    static var savedUsersId = "savedUsersId"
+    
     /// Function to validate mail ID .
     /// - Returns: A boolean value based on validity of the mail.
     func isValidEmail() -> Bool {
@@ -112,5 +115,4 @@ extension String {
         }
         return false
     }
-    static var savedUsersId = "savedUsersId"
 }

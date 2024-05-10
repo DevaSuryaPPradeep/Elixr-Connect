@@ -10,14 +10,16 @@ import SwiftUI
 struct UserDetailsView: View {
     @StateObject var viewModelInstance: UserDetailsViewModel = UserDetailsViewModel()
     var body: some View {
-        VStack{
-            Text("UserDetails View")
-            List {
+        
+        List {
+            HStack {
                 ForEach(viewModelInstance.dataProvider,id: \.self) {
-                    Text($0.userName)
-                    Text($0.emailAddress)
-                    Text($0.phoneNumber)
+                    details in
+                    Text(details.userName)
+                    Text(details.emailAddress)
+                    Text(details.phoneNumber)
                 }
+                .listStyle(.inset)
             }
         }
         .onAppear(perform: {

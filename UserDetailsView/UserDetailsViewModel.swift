@@ -15,12 +15,12 @@ class UserDetailsViewModel: ObservableObject  {
     
     ///  Function to get data from the userdefaults.
     @MainActor
-    func dataReceiver() -> [UserModel] {
+    func dataReceiver()  {
         guard let savedUsersData =  UserDefaults.standard.data(forKey: .savedUsersId),
               let savedUsers = try? JSONDecoder().decode([UserModel].self, from: savedUsersData) else {
-            return []
+           return
         }
         dataProvider += savedUsers
-        return dataProvider
+        print("dataprovider---->\(dataProvider)")
     }
 }

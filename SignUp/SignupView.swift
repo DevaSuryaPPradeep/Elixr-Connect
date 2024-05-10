@@ -13,6 +13,9 @@ struct SignupView: View {
     /// Stateobject declarations
     @StateObject var viewmodelInstance: SignupViewmodel = SignupViewmodel()
     
+    /// Declaration of Environment variable .
+    @Environment(\.presentationMode) var presentationMode
+    
     /// State property declarations.
     @State var userInputReceiver: String = ""
     @State var phoneNumber: String = ""
@@ -23,13 +26,24 @@ struct SignupView: View {
     @State var hidePasswordBool: Bool = false
     @State var alertMessage: String = ""
     @State var returnedMessage: String = ""
-    @State var AlertBooleanVariable: Bool = false
+    @State var alertBooleanVariable: Bool = false
+    @State var signupCompleted: Bool = false
     
     var body: some View {
+        VStack {
+            headingView
+            userInputFields
+            signUpButton
+            loginPrompt
+        }
+            .navigationBarBackButtonHidden()
+            .navigationTitle(Text("Sign up"))
+    }
+    
+    /// View representing heading view.
+    private var headingView: some View {
         Text("Sign up")
             .font(.title)
-        userInputFields
-        signUpButton
     }
     
     /// User input fields.
@@ -63,11 +77,12 @@ struct SignupView: View {
             let validationResult = viewmodelInstance.authenticate(userNameDetails: userName, emailAddressDetails: emailAddress, passwordDetails: password, phoneNumberDetails: phoneNumber, confirmPassword: confirmPassword)
             if validationResult.isValid {
                 self.alertMessage =     viewmodelInstance.addToMemory(modelInstance: UserModel(userName: userName, password: password, phoneNumber: phoneNumber, emailAddress: emailAddress)) ?? "Invalid Message"
-                AlertBooleanVariable.toggle()
+                alertBooleanVariable.toggle()
             }
             else {
                 self.alertMessage = validationResult.message ?? "Invalid Message.."
-                AlertBooleanVariable.toggle()
+                alertBooleanVariable.toggle()
+                signupCompleted.toggle()
             }
         }label: {
             Text("Sign up")
@@ -75,11 +90,29 @@ struct SignupView: View {
                 .bold()
                 .frame(width: 300, height: 30)
                 .background(Color.gray)
-            .clipShape(RoundedRectangle(cornerRadius: 10.0))     
+                .clipShape(RoundedRectangle(cornerRadius: 10.0))
         }
-        .alert(isPresented: $AlertBooleanVariable, content: {
-            Alert(title: Text("Message"),message:Text(alertMessage))
+        .navigationDestination(isPresented: $signupCompleted, destination: {
+            UserDetailsView()
         })
+        .alert(isPresented: $alertBooleanVariable, content: {
+            Alert(title: Text("Message"),message:Text(alertMessage))
+            
+        })
+    }
+    
+    /// View representing a login prompt along with a login button to navigate back to the login View.
+    private var loginPrompt: some View {
+        HStack {
+            Text("You already have an account?")
+            Button {
+                self.presentationMode.wrappedValue.dismiss()
+            }label: {
+                Text("Log In")
+                    .font(.headline)
+                    .bold()
+            }
+        }
     }
 }
 
