@@ -12,6 +12,8 @@ struct SplashScreen: View {
     
     ///State property declaration.
     @State var isActive: Bool = false
+    @State var isSignedIn: Bool = false
+    @State var isLoggedIn: Bool = false
     
     var body: some View {
         ZStack {
@@ -19,7 +21,12 @@ struct SplashScreen: View {
                 .opacity(0.5)
                 .ignoresSafeArea()
             if isActive {
-                LoginView()
+                if isLoggedIn || isSignedIn {
+                    UserDetailsView()
+                }
+                else {
+                    LoginView(isLoginKey: $isLoggedIn, isSignKey: $isSignedIn)
+                }
             }
             else {
                 splashScreen

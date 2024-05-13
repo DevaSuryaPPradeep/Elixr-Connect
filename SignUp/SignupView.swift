@@ -10,11 +10,11 @@ import SwiftUI
 /// View for SignupView
 struct SignupView: View {
     
-    /// Stateobject declarations
-    @ObservedObject var viewmodelInstance: SignupViewModel = SignupViewModel()
-    
     /// Declaration of Environment variable .
     @Environment(\.presentationMode) var presentationMode
+    
+    /// Stateobject declarations
+    @ObservedObject var viewmodelInstance: SignupViewModel = SignupViewModel()
     
     /// State property declarations.
     @State var phoneNumber: String = ""
@@ -28,20 +28,17 @@ struct SignupView: View {
     @State var alertBooleanVariable: Bool = false
     @State var signupCompleted: Bool = false
     
+    /// Binding property declaration.
+    @Binding var isSignedUp: Bool
+    
     var body: some View {
         VStack {
             userInputFields
             signUpButton
             loginPrompt
         }
-            .navigationBarBackButtonHidden()
-            .navigationTitle(Text("Sign up"))
-    }
-    
-    /// View representing heading view.
-    private var headingView: some View {
-        Text("Sign up")
-            .font(.title)
+        .navigationBarBackButtonHidden()
+        .navigationTitle(Text("Sign up"))
     }
     
     /// User input fields.
@@ -51,30 +48,13 @@ struct SignupView: View {
         }
     }
     
-    /// Private function to alot Binding property for each fields.
-    /// - Parameter variable: Is of type SignupModel .
-    /// - Returns: Returns a binding property depending upon the fields.
-    private func setupSignup (for variable :SignupModel)->Binding<String> {
-        switch variable {
-        case .userName:
-            return $userName
-        case .emailAddress:
-            return $emailAddress
-        case .phoneNumber:
-            return $phoneNumber
-        case .password:
-            return $password
-        case .confirmPassword:
-            return $confirmPassword
-        }
-    }
-    
     /// View for representing sign up button.
     private var signUpButton: some View {
         Button {
             let validationResult = viewmodelInstance.authenticate(userNameDetails: userName, emailAddressDetails: emailAddress, passwordDetails: password, phoneNumberDetails: phoneNumber, confirmPassword: confirmPassword)
             if validationResult.isValid {
                 self.alertMessage =     viewmodelInstance.addToMemory(modelInstance: UserModel(userName: userName, password: password, phoneNumber: phoneNumber, emailAddress: emailAddress)) ?? "Invalid Message"
+                signupCompleted.toggle()
                 alertBooleanVariable.toggle()
             }
             else {
@@ -109,6 +89,24 @@ struct SignupView: View {
                     .font(.headline)
                     .bold()
             }
+        }
+    }
+    
+    /// Private function to alot Binding property for each fields.
+    /// - Parameter variable: Is of type SignupModel .
+    /// - Returns: Returns a binding property depending upon the fields.
+    private func setupSignup (for variable :SignupModel)->Binding<String> {
+        switch variable {
+        case .userName:
+            return $userName
+        case .emailAddress:
+            return $emailAddress
+        case .phoneNumber:
+            return $phoneNumber
+        case .password:
+            return $password
+        case .confirmPassword:
+            return $confirmPassword
         }
     }
 }
@@ -150,5 +148,5 @@ struct signUpFields :View {
 }
 
 #Preview {
-    SignupView()
+    SignupView( isSignedUp: .constant(false))
 }

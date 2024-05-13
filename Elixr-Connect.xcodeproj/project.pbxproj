@@ -45,6 +45,7 @@
 /* Begin PBXFileReference section */
 		5AD171E72BEE1B98006B9D74 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5AD171E92BEE1BCC006B9D74 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		5AD171EB2BEF4973006B9D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5ADF98902BEB8044006AABD1 /* Elixr-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elixr-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADF98932BEB8044006AABD1 /* Elixr_ConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elixr_ConnectApp.swift; sourceTree = "<group>"; };
 		5ADF98952BEB8044006AABD1 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		5ADF98922BEB8044006AABD1 /* Elixr-Connect */ = {
 			isa = PBXGroup;
 			children = (
+				5AD171EB2BEF4973006B9D74 /* Info.plist */,
 				5ADF98972BEB8047006AABD1 /* Assets.xcassets */,
 				5ADF98992BEB8047006AABD1 /* Preview Content */,
 			);
@@ -493,6 +495,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Elixr-Connect/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Elixr-Connect/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -522,6 +525,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Elixr-Connect/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Elixr-Connect/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen;
 				LD_RUNPATH_SEARCH_PATHS = (

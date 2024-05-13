@@ -31,7 +31,7 @@ class LoginViewModel:ObservableObject {
     /// Function to check whether the credentials typed in by the user matches the credentials in the storage.
     /// - Parameter userData: Is of type UserModel which will be collecting the userInput.
     /// - Returns: Returns a boolean value based on the presense of the user credentials in the data retieved from the userDefaults.
-    func getUserData(userData: UserModel) -> Bool {
+    func isUserAlreadyExist(userData: UserModel) -> Bool {
         dataSource = getSavedUsers()
         let isUserAlreadyExist = dataSource.contains(where: {$0.userName == userData.userName && $0.password == userData.password})
         return isUserAlreadyExist

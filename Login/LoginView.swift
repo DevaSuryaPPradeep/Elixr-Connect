@@ -10,6 +10,7 @@ import SwiftUI
 /// Login View.
 struct LoginView: View {
     
+    /// Stateobject declaration.
     @StateObject var loginViewModelInstance: LoginViewModel = LoginViewModel()
     
     /// State property declarations
@@ -19,6 +20,10 @@ struct LoginView: View {
     @State var isSignedUp: Bool = false
     @State var isLoggedin: Bool = false
     @State var alertBool: Bool = false
+    
+    /// Binding property declaration.
+    @Binding var isLoginKey: Bool
+    @Binding var isSignKey: Bool
     
     var body: some View {
         NavigationStack {
@@ -75,11 +80,8 @@ struct LoginView: View {
     private var loginButton: some View {
         Button {
             if  loginViewModelInstance.authenticateUserInputFields(usernameDetails:userNameValue , passwordDetails: passwordIdValue).isvalid {
-                if  loginViewModelInstance.getUserData(userData: UserModel(userName: userNameValue, password: passwordIdValue, phoneNumber: "", emailAddress: "")) {
+                if  loginViewModelInstance.isUserAlreadyExist(userData: UserModel(userName: userNameValue, password: passwordIdValue, phoneNumber: "", emailAddress: "")) {
                     isLoggedin.toggle()
-                }
-                else {
-                    
                 }
             }
             else {
@@ -112,12 +114,9 @@ struct LoginView: View {
                 Text("Sign up")
             }
             .navigationDestination(isPresented: $isSignedUp) {
-                SignupView()
+                SignupView( isSignedUp: $isSignKey)
             }
         }
     }
 }
 
-#Preview {
-    LoginView()
-}

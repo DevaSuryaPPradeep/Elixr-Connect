@@ -6,28 +6,25 @@
 //
 
 import SwiftUI
+import CoreTelephony
 
+/// View
 struct UserDetailsView: View {
+    
+    /// Stateobjecct decalrations.
     @StateObject var viewModelInstance: UserDetailsViewModel = UserDetailsViewModel()
+    
     var body: some View {
-        
         List {
             ForEach(viewModelInstance.dataProvider,id: \.self) {
                 details in
-                RoundedRectangle(cornerRadius: 10.0)
-                    .stroke(style: StrokeStyle())
-                    .frame(width: 340,height: 260)
+                roundedRectangleView
                     .overlay {
                         VStack{
-                            Image(systemName: "person")
-                                .resizable()
-                                .clipShape(Circle())
-                                .scaledToFit()
-                                .frame(width: 50,height: 50)
                             Text("Username")
                                 .bold()
                             Text(details.userName)
-                                .padding()
+                            Spacer()
                             HStack {
                                 VStack{
                                     Text("Email Address")
@@ -42,13 +39,24 @@ struct UserDetailsView: View {
                                     Text(details.phoneNumber)
                                         .font(.subheadline)
                                 }
+                                Button {
+                                    viewModelInstance.performCall(phoneNumber: details.phoneNumber)
+                                }
+                            label: {
+                                Image(systemName: "phone.fill")
+                                    .foregroundStyle(Color.cyan)
+                            }
+                                Spacer()
+                                Text("Teams")
+                                    .onTapGesture {
+                                        viewModelInstance.connectWithTeams()
+                                    }
                             }
                             Spacer()
                         }
                         .padding()
                     }
-                        .listStyle(.inset)
-                    
+                    .listStyle(.inset)
             }
             .navigationTitle(Text("User Details View."))
         }
@@ -56,8 +64,12 @@ struct UserDetailsView: View {
             viewModelInstance.dataReceiver()
         })
     }
-}
-
-#Preview {
-    UserDetailsView()
+    
+    /// View representing rounded rectangle view.
+    private var roundedRectangleView: some View{
+        RoundedRectangle(cornerRadius: 10.0)
+            .stroke(style: StrokeStyle())
+            .frame(width: 340,height: 260)
+    }
+   
 }
