@@ -57,6 +57,10 @@ struct SignupView: View {
                 if memoryValidation.isValid {
                     signupCompleted.toggle()
                 }
+                else {
+                    self.alertMessage = memoryValidation.message ?? "Invalid message"
+                    self.alertBooleanVariable.toggle()
+                }
             }
             else {
                 self.alertMessage = validationResult.message ?? "Invalid Message.."
@@ -127,9 +131,11 @@ struct signUpFields :View {
                     HStack{
                         if isHidden {
                             TextField(spModel.placeHolder, text: $textValue)
+                                .textInputAutocapitalization(.none)
                         }
                         else {
                             SecureField(spModel.placeHolder, text: $textValue)
+                                .textInputAutocapitalization(.none)
                         }
                         Button {
                             isHidden.toggle()
@@ -141,6 +147,7 @@ struct signUpFields :View {
                 }
                 else {
                     TextField(spModel.placeHolder, text: $textValue)
+                        .textInputAutocapitalization(.none)
                 }
             })
         }
