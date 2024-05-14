@@ -39,24 +39,37 @@ class UserDetailsViewModel: ObservableObject  {
     }
     
     /// Function to connect the user with Microsoft teams app.
-    func connectWithTeams() {
-        let teamsURLString = "msteams://"
-        guard let teamsURL = URL(string: teamsURLString) else {
-            print("Invalid URL")
-            return
+    func connectWithTeams(){
+            let url = URL(string: "TeamsDemo://")!
+        
+             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
-        guard UIApplication.shared.canOpenURL(teamsURL) else {
-            print("Unable to open Microsoft Teams")
-            return
         }
-        UIApplication.shared.open(teamsURL) { success in
-            if success {
-                print("Microsoft Teams opened successfully")
-            } else {
-                print("Failed to open Microsoft Teams")
-            }
-        }
-    }
-}
 
+//
+//func connectWithTeams() {
+//    let teamsURLString = "TeamsDemo://"
+//    guard let teamsURL = URL(string: teamsURLString) else {
+//        print("Invalid URL")
+//        return
+//    }
+//    guard UIApplication.shared.canOpenURL(teamsURL) else {
+//        print("Unable to open Microsoft Teams")
+//        return
+//    }
+//    UIApplication.shared.open(teamsURL) { success in
+//        if success {
+//            print("Microsoft Teams opened successfully")
+//        } else {
+//            print("Failed to open Microsoft Teams")
+//        }
+//    }
+//}
 
+/// Function to connect the user with Microsoft teams app.
+//func connectWithTeams() {
+//    let url = URL(string: "TeamsDemo://")!
+//
+//     UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//}
+//}

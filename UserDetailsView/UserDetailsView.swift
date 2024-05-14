@@ -12,7 +12,7 @@ import CoreTelephony
 struct UserDetailsView: View {
     
     /// Stateobjecct decalrations.
-    @StateObject var viewModelInstance: UserDetailsViewModel = UserDetailsViewModel()
+    @StateObject private var viewModelInstance: UserDetailsViewModel = UserDetailsViewModel()
     
     var body: some View {
         List {

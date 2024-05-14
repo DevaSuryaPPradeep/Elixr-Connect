@@ -11,15 +11,15 @@ import SwiftUI
 struct LoginView: View {
     
     /// Stateobject declaration.
-    @StateObject var loginViewModelInstance: LoginViewModel = LoginViewModel()
+    @StateObject private var loginViewModelInstance: LoginViewModel = LoginViewModel()
     
     /// State property declarations
-    @State var userNameValue: String = ""
-    @State var passwordIdValue: String = ""
-    @State var alertMessage: String = ""
-    @State var isSignedUp: Bool = false
-    @State var isLoggedin: Bool = false
-    @State var alertBool: Bool = false
+    @State private var userNameValue: String = ""
+    @State private var passwordIdValue: String = ""
+    @State private var alertMessage: String = ""
+    @State private var isSignedUp: Bool = false
+    @State private var isLoggedin: Bool = false
+    @State private var alertBool: Bool = false
     
     /// Binding property declaration.
     @Binding var isLoginKey: Bool

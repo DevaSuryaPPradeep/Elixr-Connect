@@ -11,25 +11,25 @@ import SwiftUI
 struct SignupView: View {
     
     /// Declaration of Environment variable .
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) private var presentationMode
     
     /// Stateobject declarations
-    @ObservedObject var viewmodelInstance: SignupViewModel = SignupViewModel()
+    @ObservedObject private var viewmodelInstance: SignupViewModel = SignupViewModel()
     
     /// State property declarations.
-    @State var phoneNumber: String = ""
-    @State var userName: String = ""
-    @State var password: String = ""
-    @State var emailAddress: String = ""
-    @State var confirmPassword: String = ""
-    @State var hidePasswordBool: Bool = false
-    @State var alertMessage: String = ""
-    @State var returnedMessage: String = ""
-    @State var alertBooleanVariable: Bool = false
-    @State var signupCompleted: Bool = false
+    @State private var  phoneNumber: String = ""
+    @State private var userName: String = ""
+    @State private var password: String = ""
+    @State private var emailAddress: String = ""
+    @State private var confirmPassword: String = ""
+    @State private var hidePasswordBool: Bool = false
+    @State private var alertMessage: String = ""
+    @State private var returnedMessage: String = ""
+    @State private var alertBooleanVariable: Bool = false
+    @State private var signupCompleted: Bool = false
     
     /// Binding property declaration.
-    @Binding var isSignedUp: Bool
+    @Binding  var isSignedUp: Bool
     
     var body: some View {
         VStack {

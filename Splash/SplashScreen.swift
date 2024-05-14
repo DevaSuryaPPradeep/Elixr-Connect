@@ -11,9 +11,9 @@ import SwiftUI
 struct SplashScreen: View {
     
     ///State property declaration.
-    @State var isActive: Bool = false
-    @State var isSignedIn: Bool = false
-    @State var isLoggedIn: Bool = false
+    @State private var isActive: Bool = false
+    @State private var isSignedIn: Bool = false
+    @State private var isLoggedIn: Bool = false
     
     var body: some View {
         ZStack {
