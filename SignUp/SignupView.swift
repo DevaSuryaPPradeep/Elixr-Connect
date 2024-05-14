@@ -41,7 +41,7 @@ struct SignupView: View {
         .navigationTitle(Text("Sign up"))
     }
     
-    /// User input fields.
+    /// Vie representing user input fields.
     private var userInputFields :some View {
         List(viewmodelInstance.dataArray,id: \.self) {
             detail in signUpFields(spModel: detail, textValue: setupSignup(for: detail))
@@ -53,9 +53,10 @@ struct SignupView: View {
         Button {
             let validationResult = viewmodelInstance.authenticate(userNameDetails: userName, emailAddressDetails: emailAddress, passwordDetails: password, phoneNumberDetails: phoneNumber, confirmPassword: confirmPassword)
             if validationResult.isValid {
-                self.alertMessage =     viewmodelInstance.addToMemory(modelInstance: UserModel(userName: userName, password: password, phoneNumber: phoneNumber, emailAddress: emailAddress)) ?? "Invalid Message"
-                signupCompleted.toggle()
-                alertBooleanVariable.toggle()
+                let memoryValidation = viewmodelInstance.addToMemory(modelInstance: UserModel(userName: userName, password: password, phoneNumber: phoneNumber, emailAddress: emailAddress))
+                if memoryValidation.isValid {
+                    signupCompleted.toggle()
+                }
             }
             else {
                 self.alertMessage = validationResult.message ?? "Invalid Message.."
@@ -74,7 +75,6 @@ struct SignupView: View {
         })
         .alert(isPresented: $alertBooleanVariable, content: {
             Alert(title: Text("Message"),message:Text(alertMessage))
-            
         })
     }
     
@@ -128,7 +128,7 @@ struct signUpFields :View {
                         if isHidden {
                             TextField(spModel.placeHolder, text: $textValue)
                         }
-                        else{
+                        else {
                             SecureField(spModel.placeHolder, text: $textValue)
                         }
                         Button {

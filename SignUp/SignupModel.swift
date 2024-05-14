@@ -31,7 +31,6 @@ extension SignupModel {
             return "Password"
         case .confirmPassword:
             return "Re-enter Password"
-            
         }
     }
     
@@ -48,7 +47,6 @@ extension SignupModel {
             return "Enter the password here."
         case .confirmPassword:
             return "Re-enter the password here."
-            
         }
     }
     
@@ -65,7 +63,6 @@ extension SignupModel {
             return "lock"
         case .confirmPassword:
             return "lock"
-            
         }
     }
     

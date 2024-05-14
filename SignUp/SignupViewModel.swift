@@ -50,14 +50,14 @@ class SignupViewModel: ObservableObject {
     /// Function itself calls multiple function to check whether the user  already exist or not, if present it will iniates the process of persisting the value inside an array.
     /// - Parameter modelInstance: This is the model of data expecting after the user types in their info in the signup page.
     /// - Returns: Returns a string value.
-    func addToMemory(modelInstance:UserModel?)-> String? {
+    func addToMemory(modelInstance:UserModel?)-> (isValid: Bool,message: String?) {
         dataSource = getSavedUsers()
         guard let modelInstance = modelInstance , !checkOldUser(userData: modelInstance) else {
-            return "User name already taken, type in a unique one."
+            return (false,"User name already taken, type in a unique one.")
         }
         dataSource.append(modelInstance)
         persistData(inputData: dataSource)
-        return "User creation successfull."
+        return(true,"User creation successfull.") 
     }
     
     /// Function check whether a user is already existed or not .
@@ -97,7 +97,6 @@ class SignupViewModel: ObservableObject {
         let digitSet = CharacterSet.decimalDigits
         return !string.isEmpty && string.rangeOfCharacter(from: letterSet) != nil && string.rangeOfCharacter(from: digitSet) != nil
     }
-    
 }
 
 extension String {

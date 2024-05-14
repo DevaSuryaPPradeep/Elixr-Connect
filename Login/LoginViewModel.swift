@@ -34,6 +34,7 @@ class LoginViewModel:ObservableObject {
     func isUserAlreadyExist(userData: UserModel) -> Bool {
         dataSource = getSavedUsers()
         let isUserAlreadyExist = dataSource.contains(where: {$0.userName == userData.userName && $0.password == userData.password})
+        print("isUserAlreadyExist--->\(isUserAlreadyExist)")
         return isUserAlreadyExist
     }
     
