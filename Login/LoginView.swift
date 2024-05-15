@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FBSDKLoginKit
 
 /// Login View.
 struct LoginView: View {
@@ -25,6 +26,10 @@ struct LoginView: View {
     @Binding var isLoginKey: Bool
     @Binding var isSignKey: Bool
     
+    @AppStorage ("logged") var logged = false
+    @AppStorage ("email") var email = ""
+    @State var loginManager = LoginManager()
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -36,6 +41,7 @@ struct LoginView: View {
                     emailView
                     passwordView
                     loginButton
+                    loginWithFacebook
                     signInPrompt
                 }
             }
@@ -117,6 +123,42 @@ struct LoginView: View {
                 SignupView( isSignedUp: $isSignKey)
             }
         }
+    }
+    
+    private var loginWithFacebook: some View {
+        Button {
+            if logged {
+                loginManager.logOut()
+                email = ""
+                logged = false
+            }
+            else {
+                loginManager.logIn(permissions: ["public_Profile","email"], from: nil) { (result, errorValue) in
+                    guard let errorValue = errorValue else {
+                        print(errorValue?.localizedDescription ?? "")
+                        return
+                    }
+                    
+                    guard let result = result, !result.isCancelled else {
+                        return
+                    }
+                    logged = true
+                    let request = GraphRequest(graphPath: "me", parameters: ["Field" : "email"])
+                    request.start { _, returnedResult, _ in
+                        guard let profileData = returnedResult as? [String:Any] else {return}
+                        email = profileData["email"] as? String ?? "Invalid mail"
+                    }                    
+                }
+            }
+        }label: {
+            Text("Login with Facebook")
+                .foregroundStyle(Color.white)
+                .bold()
+                .frame(width: 300, height: 30)
+                .background(Color.gray)
+                .clipShape(RoundedRectangle(cornerRadius: 10.0))
+        }
+        
     }
 }
 

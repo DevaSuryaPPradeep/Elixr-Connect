@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5AD171E82BEE1B98006B9D74 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD171E72BEE1B98006B9D74 /* LoginViewModel.swift */; };
 		5AD171EA2BEE1BCC006B9D74 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD171E92BEE1BCC006B9D74 /* LoginModel.swift */; };
+		5ADF07D22BF48DA400C023CB /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 5ADF07D12BF48DA400C023CB /* FacebookLogin */; };
 		5ADF98942BEB8044006AABD1 /* Elixr_ConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF98932BEB8044006AABD1 /* Elixr_ConnectApp.swift */; };
 		5ADF98962BEB8044006AABD1 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF98952BEB8044006AABD1 /* SplashScreen.swift */; };
 		5ADF98982BEB8047006AABD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ADF98972BEB8047006AABD1 /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ADF07D22BF48DA400C023CB /* FacebookLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +206,9 @@
 			dependencies = (
 			);
 			name = "Elixr-Connect";
+			packageProductDependencies = (
+				5ADF07D12BF48DA400C023CB /* FacebookLogin */,
+			);
 			productName = "Elixr-Connect";
 			productReference = 5ADF98902BEB8044006AABD1 /* Elixr-Connect.app */;
 			productType = "com.apple.product-type.application";
@@ -276,6 +281,9 @@
 				Base,
 			);
 			mainGroup = 5ADF98872BEB8044006AABD1;
+			packageReferences = (
+				5ADF07D02BF48DA400C023CB /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+			);
 			productRefGroup = 5ADF98912BEB8044006AABD1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -493,6 +501,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Elixr-Connect/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Elixr-Connect/Info.plist";
@@ -524,6 +533,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Elixr-Connect/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Elixr-Connect/Info.plist";
@@ -653,6 +663,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5ADF07D02BF48DA400C023CB /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5ADF07D12BF48DA400C023CB /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5ADF07D02BF48DA400C023CB /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5ADF98882BEB8044006AABD1 /* Project object */;
 }

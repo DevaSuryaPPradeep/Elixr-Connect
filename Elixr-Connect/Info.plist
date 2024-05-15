@@ -6,6 +6,12 @@
 	<array>
 		<dict/>
 	</array>
+	<key>FacebookAppID</key>
+	<string>740837811282264</string>
+	<key>FacebookClientToken</key>
+	<string>af8ba1bbd03c75a2c700f63800df5fcc</string>
+	<key>FacebookDisplayName</key>
+	<string>Elixr-Connect</string>
 	<key>LSapplication</key>
 	<string></string>
 	<key>NSAllowsArbitraryLoads</key>
