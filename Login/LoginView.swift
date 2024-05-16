@@ -123,23 +123,29 @@ struct LoginView: View {
         }
     }
     
-    /// View containig Login with facebook button.
+    /// View containig "Login with facebook" button.
     private var loginWithFacebook: some View {
         Button {
-            loginViewModelInstance.loginWithFacebook()
+            if loginViewModelInstance.isAuth {
+                loginViewModelInstance.loginWithFacebook()
+                print("Authentication Started...")
+            }
         }label: {
             HStack {
                 Text("Login with Facebook")
                 Image("facebookLogo")
                     .font(.system(size: 40))
             }
-                    .font(.headline)
-                    .foregroundStyle(Color.white)
-                    .bold()
-                    .frame(width: 315, height: 50)
-                    .background(Color.blue)
-                    .clipShape(RoundedRectangle(cornerRadius: 10.0))
+            .font(.headline)
+            .foregroundStyle(Color.white)
+            .bold()
+            .frame(width: 315, height: 50)
+            .background(Color.blue)
+            .clipShape(RoundedRectangle(cornerRadius: 10.0))
         }
+        .alert(isPresented: $alertBool, content: {
+            Alert(title: Text("Alert"),message: Text(loginViewModelInstance.errorMessage))
+        })
     }
 }
 

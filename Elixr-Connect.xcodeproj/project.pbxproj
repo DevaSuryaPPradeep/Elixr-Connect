@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A42EF7D2BF5CFC2003C37CB /* FaceboookLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A42EF7C2BF5CFC2003C37CB /* FaceboookLoginModel.swift */; };
 		5A7392732BF4CD0700AEE999 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7392722BF4CD0700AEE999 /* AppDelegate.swift */; };
 		5AD171E82BEE1B98006B9D74 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD171E72BEE1B98006B9D74 /* LoginViewModel.swift */; };
 		5AD171EA2BEE1BCC006B9D74 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD171E92BEE1BCC006B9D74 /* LoginModel.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A42EF7C2BF5CFC2003C37CB /* FaceboookLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceboookLoginModel.swift; sourceTree = "<group>"; };
 		5A7392722BF4CD0700AEE999 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AD171E72BEE1B98006B9D74 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5AD171E92BEE1BCC006B9D74 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				5ADF98BE2BEB80D3006AABD1 /* LoginView.swift */,
 				5AD171E72BEE1B98006B9D74 /* LoginViewModel.swift */,
 				5AD171E92BEE1BCC006B9D74 /* LoginModel.swift */,
+				5A42EF7C2BF5CFC2003C37CB /* FaceboookLoginModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A7392732BF4CD0700AEE999 /* AppDelegate.swift in Sources */,
+				5A42EF7D2BF5CFC2003C37CB /* FaceboookLoginModel.swift in Sources */,
 				5ADF98C42BEB894B006AABD1 /* SignupView.swift in Sources */,
 				5AE72AA42BECD2EB006F480D /* UserDetailsViewModel.swift in Sources */,
 				5AE72A9F2BEC8B63006F480D /* UserModel.swift in Sources */,

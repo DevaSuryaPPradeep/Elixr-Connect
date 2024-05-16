@@ -11,52 +11,25 @@ import CoreTelephony
 /// View
 struct UserDetailsView: View {
     
-    /// Stateobjecct decalrations.
+    /// Stateobject decalrations.
     @StateObject private var viewModelInstance: UserDetailsViewModel = UserDetailsViewModel()
     
     var body: some View {
         List {
             ForEach(viewModelInstance.dataProvider,id: \.self) {
                 details in
-                roundedRectangleView
-                    .overlay {
-                        VStack{
-                            Text("Username")
-                                .bold()
-                            Text(details.userName)
-                            Spacer()
-                            HStack {
-                                VStack{
-                                    Text("Email Address")
-                                        .bold()
-                                    Text(details.emailAddress)
-                                        .font(.subheadline)
-                                }
-                                Spacer()
-                                VStack{
-                                    Text("Personal Number")
-                                        .bold()
-                                    Text(details.phoneNumber)
-                                        .font(.subheadline)
-                                }
-                                Button {
-                                    viewModelInstance.performCall(phoneNumber: details.phoneNumber)
-                                }
-                            label: {
-                                Image(systemName: "phone.fill")
-                                    .foregroundStyle(Color.cyan)
-                            }
-                                Spacer()
-                                Text("Teams")
-                                    .onTapGesture {
-                                        viewModelInstance.connectWithTeams()
-                                    }
-                            }
-                            Spacer()
+                HStack {
+                    Image("Icon1")
+                        .resizable().frame(width: 50,height: 50)
+                        .scaledToFit()
+                    Text(details.userName)
+                Spacer()
+                    Image(systemName: "phone.fill")
+                        .foregroundColor(.green)
+                        .onTapGesture {
+                            viewModelInstance.performCall(phoneNumber: details.phoneNumber)
                         }
-                        .padding()
-                    }
-                    .listStyle(.inset)
+                }
             }
             .navigationTitle(Text("User Details View."))
         }
@@ -69,11 +42,46 @@ struct UserDetailsView: View {
     private var roundedRectangleView: some View{
         RoundedRectangle(cornerRadius: 10.0)
             .stroke(style: StrokeStyle())
-            .frame(width: 340,height: 260)
     }
-   
 }
 
 #Preview {
     UserDetailsView()
 }
+//                        VStack{
+//                            Text("Username")
+//                                .bold()
+//                            Text(details.userName)
+//                            Spacer()
+//                            HStack {
+//                                VStack{
+//                                    Text("Email Address")
+//                                        .bold()
+//                                    Text(details.emailAddress)
+//                                        .font(.subheadline)
+//                                }
+//                                Spacer()
+//                                VStack{
+//                                    Text("Personal Number")
+//                                        .bold()
+//                                    Text(details.phoneNumber)
+//                                        .font(.subheadline)
+//                                }
+//                                Button {
+//                                    viewModelInstance.performCall(phoneNumber: details.phoneNumber)
+//                                }
+//                            label: {
+//                                Image(systemName: "phone.fill")
+//                                    .foregroundStyle(Color.cyan)
+//                            }
+//                                Spacer()
+//                                Text("Teams")
+//                                    .onTapGesture {
+//                                        viewModelInstance.connectWithTeams()
+//                                    }
+//                            }
+//                            Spacer()
+//                        }
+//                        .padding()
+//                    }
+//                    .listStyle(.inset)

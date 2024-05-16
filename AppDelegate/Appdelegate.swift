@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import FacebookLogin
+import FBSDKCoreKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(

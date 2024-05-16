@@ -7,17 +7,79 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E4D2CA40-ECE5-4010-9199-3D925BEB89C8"
+            uuid = "4B6959E6-C15D-4307-92D5-85718D3FFFC2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "UserDetailsView/UserDetailsView.swift"
+            filePath = "Login/LoginViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "loginWithFacebook()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4B6959E6-C15D-4307-92D5-85718D3FFFC2 - b03d84ccdb809772"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (FBSDKLoginKit.LoginResult) -&gt; () in Elixr_Connect.LoginViewModel.loginWithFacebook() -&gt; ()"
+                  moduleName = "Elixr-Connect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devasurya/Desktop/Swift%20projects/Elixr-Connect/ElixrConnectApp/Untitled/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "4B6959E6-C15D-4307-92D5-85718D3FFFC2 - b03d84ccdb809772"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (FBSDKLoginKit.LoginResult) -&gt; () in Elixr_Connect.LoginViewModel.loginWithFacebook() -&gt; ()"
+                  moduleName = "Elixr-Connect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devasurya/Desktop/Swift%20projects/Elixr-Connect/ElixrConnectApp/Untitled/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "348">
+               </Location>
+               <Location
+                  uuid = "4B6959E6-C15D-4307-92D5-85718D3FFFC2 - b03d84ccdb809772"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (FBSDKLoginKit.LoginResult) -&gt; () in Elixr_Connect.LoginViewModel.loginWithFacebook() -&gt; ()"
+                  moduleName = "Elixr-Connect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devasurya/Desktop/Swift%20projects/Elixr-Connect/ElixrConnectApp/Untitled/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  uuid = "4B6959E6-C15D-4307-92D5-85718D3FFFC2 - b03d84ccdb809772"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (FBSDKLoginKit.LoginResult) -&gt; () in Elixr_Connect.LoginViewModel.loginWithFacebook() -&gt; ()"
+                  moduleName = "Elixr-Connect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devasurya/Desktop/Swift%20projects/Elixr-Connect/ElixrConnectApp/Untitled/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "352">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
