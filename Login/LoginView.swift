@@ -26,10 +26,6 @@ struct LoginView: View {
     @Binding var isLoginKey: Bool
     @Binding var isSignKey: Bool
     
-    @AppStorage ("logged") var logged = false
-    @AppStorage ("email") var email = ""
-    @State var loginManager = LoginManager()
-    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -41,8 +37,13 @@ struct LoginView: View {
                     emailView
                     passwordView
                     loginButton
+                        .padding()
                     loginWithFacebook
+                        .padding()
                     signInPrompt
+                }
+                .navigationDestination(isPresented: $loginViewModelInstance.isloggedIn) {
+                    UserDetailsView()
                 }
             }
         }
@@ -61,7 +62,7 @@ struct LoginView: View {
                 .padding(3)
             TextField("Type in your user name here", text: $userNameValue)
         }
-        .frame(width: 300,height: 60)
+        .frame(width: 315,height: 50)
         .background(Color.white.opacity(0.3))
         .clipShape(RoundedRectangle(cornerRadius: 5))
         .cornerRadius(10.0)
@@ -75,7 +76,7 @@ struct LoginView: View {
                 .padding(3)
             TextField("Type in your password here", text: $passwordIdValue)
         }
-        .frame(width: 300,height: 60)
+        .frame(width: 315,height: 50)
         .background(Color.white.opacity(0.3))
         .clipShape(RoundedRectangle(cornerRadius: 5))
         .cornerRadius(10.0)
@@ -98,16 +99,13 @@ struct LoginView: View {
             Text("Login")
                 .foregroundStyle(Color.white)
                 .bold()
-                .frame(width: 300, height: 50)
+                .frame(width: 315, height: 50)
                 .background(Color.gray)
                 .clipShape(RoundedRectangle(cornerRadius: 10.0))
         }
         .alert(isPresented: $alertBool, content: {
             Alert(title: Text("Alert"),message: Text(alertMessage))
         })
-        .navigationDestination(isPresented: $isLoggedin) {
-            UserDetailsView()
-        }
     }
     
     /// View containg signup button.
@@ -125,43 +123,24 @@ struct LoginView: View {
         }
     }
     
+    /// View containig Login with facebook button.
     private var loginWithFacebook: some View {
         Button {
-            if logged {
-                loginManager.logOut()
-                email = ""
-                logged = false
-            }
-            else {
-                guard let config = LoginConfiguration(permissions: [.publicProfile, .email], tracking: .limited) else {
-                    print("Configuration failed")
-                    return
-                }
-                loginManager.logIn(configuration: config) { completion in
-                    switch completion {
-                    case .success(granted: let grandedSet, declined: let declainedSet, token: let token):
-                        print("grandSet--->\(grandedSet),declainedSet--->\(declainedSet) ,token--->\(String(describing: token))")
-                        if let token = AccessToken.current,
-                                !token.isExpired {
-                            print("isloggedin---->\(isLoggedin)")
-                            isLoggedin.toggle()
-                            }
-                    case .failed(let error):
-                        print(error.localizedDescription)
-                    case .cancelled:
-                        print("Cancelled")
-                    }
-                }
-            }
+            loginViewModelInstance.loginWithFacebook()
         }label: {
-            Text("Login with Facebook")
-                .foregroundStyle(Color.white)
-                .bold()
-                .frame(width: 300, height: 30)
-                .background(Color.gray)
-                .clipShape(RoundedRectangle(cornerRadius: 10.0))
+            HStack {
+                Text("Login with Facebook")
+                Image("facebookLogo")
+                    .font(.system(size: 40))
+            }
+                    .font(.headline)
+                    .foregroundStyle(Color.white)
+                    .bold()
+                    .frame(width: 315, height: 50)
+                    .background(Color.blue)
+                    .clipShape(RoundedRectangle(cornerRadius: 10.0))
         }
-        
     }
 }
+
 

@@ -6,12 +6,18 @@
 //
 
 import Foundation
+import FBSDKLoginKit
 
 /// Login View Model.
 class LoginViewModel:ObservableObject {
     
     /// Declaration of @published property.
     @Published var dataSource: [UserModel] = []
+    @Published var isloggedIn: Bool = false
+    
+    /// Declaration to acess LoginManager.
+    let loginManager: LoginManager = LoginManager()
+    
     
     /// Function to authenticate user interactive textfields in the view
     /// - Parameters:
@@ -46,5 +52,25 @@ class LoginViewModel:ObservableObject {
         }
         print("SavedUsers--->\(savedUsers)")
         return savedUsers
+    }
+    
+    func loginWithFacebook() {
+        guard let config = LoginConfiguration(permissions: [.publicProfile, .email], tracking: .limited) else {
+            print("Configuration failed")
+            return
+        }
+        loginManager.logIn(configuration: config) { completion in
+            switch completion {
+            case .success(granted: let grandedSet, declined: let declainedSet, token: let token):
+                print("grandSet--->\(grandedSet),declainedSet--->\(declainedSet) ,token--->\(String(describing: token))")
+                if ((token?.isExpired) == nil) {
+                    self.isloggedIn.toggle()
+                }
+            case .failed(let error):
+                print(error.localizedDescription)
+            case .cancelled:
+                print("Cancelled")
+            }
+        }
     }
 }
