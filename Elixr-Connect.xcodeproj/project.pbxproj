@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A7392732BF4CD0700AEE999 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7392722BF4CD0700AEE999 /* AppDelegate.swift */; };
 		5AD171E82BEE1B98006B9D74 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD171E72BEE1B98006B9D74 /* LoginViewModel.swift */; };
 		5AD171EA2BEE1BCC006B9D74 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD171E92BEE1BCC006B9D74 /* LoginModel.swift */; };
 		5ADF07D22BF48DA400C023CB /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 5ADF07D12BF48DA400C023CB /* FacebookLogin */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A7392722BF4CD0700AEE999 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AD171E72BEE1B98006B9D74 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5AD171E92BEE1BCC006B9D74 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		5AD171EB2BEF4973006B9D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -92,9 +94,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A7392712BF4CCF200AEE999 /* Appdelegate */ = {
+			isa = PBXGroup;
+			children = (
+				5A7392722BF4CD0700AEE999 /* AppDelegate.swift */,
+			);
+			path = Appdelegate;
+			sourceTree = "<group>";
+		};
 		5ADF98872BEB8044006AABD1 = {
 			isa = PBXGroup;
 			children = (
+				5A7392712BF4CCF200AEE999 /* Appdelegate */,
 				5ADF98932BEB8044006AABD1 /* Elixr_ConnectApp.swift */,
 				5ADF98C02BEB8823006AABD1 /* Login */,
 				5ADF98C22BEB8929006AABD1 /* SignUp */,
@@ -326,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A7392732BF4CD0700AEE999 /* AppDelegate.swift in Sources */,
 				5ADF98C42BEB894B006AABD1 /* SignupView.swift in Sources */,
 				5AE72AA42BECD2EB006F480D /* UserDetailsViewModel.swift in Sources */,
 				5AE72A9F2BEC8B63006F480D /* UserModel.swift in Sources */,
@@ -501,7 +513,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Elixr-Connect/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4Z3QW72RGP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Elixr-Connect/Info.plist";
@@ -533,7 +545,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Elixr-Connect/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4Z3QW72RGP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Elixr-Connect/Info.plist";

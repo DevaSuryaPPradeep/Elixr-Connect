@@ -31,6 +31,10 @@ class UserDetailsViewModel: ObservableObject  {
             let application:UIApplication = UIApplication.shared
             if (application.canOpenURL(phoneCallURL)) {
                 application.open(phoneCallURL, options: [:], completionHandler: nil)
+                print("Success")
+            }
+            else {
+                print("can't open the url")
             }
         }
         else {

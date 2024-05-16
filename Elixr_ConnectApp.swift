@@ -10,6 +10,8 @@ import FBSDKCoreKit
 
 @main
 struct Elixr_ConnectApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     var body: some Scene {
         WindowGroup {
             SplashScreen()

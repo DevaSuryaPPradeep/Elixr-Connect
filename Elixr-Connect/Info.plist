@@ -2,16 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict/>
-	</array>
-	<key>FacebookAppID</key>
-	<string>740837811282264</string>
-	<key>FacebookClientToken</key>
-	<string>af8ba1bbd03c75a2c700f63800df5fcc</string>
-	<key>FacebookDisplayName</key>
-	<string>Elixr-Connect</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>fb7490289127756174</string>
+      </array>
+      </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>7490289127756174</string>
+    <key>FacebookClientToken</key>
+    <string>1b052e85d19e2b033846a743369ac29d</string>
+    <key>FacebookDisplayName</key>
+    <string>Elixr-Connect</string>
 	<key>LSapplication</key>
 	<string></string>
 	<key>NSAllowsArbitraryLoads</key>
@@ -23,5 +28,10 @@
 		<key>UISceneConfigurations</key>
 		<dict/>
 	</dict>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>fbapi</string>
+      <string>fb-messenger-share-api</string>
+    </array>
 </dict>
 </plist>

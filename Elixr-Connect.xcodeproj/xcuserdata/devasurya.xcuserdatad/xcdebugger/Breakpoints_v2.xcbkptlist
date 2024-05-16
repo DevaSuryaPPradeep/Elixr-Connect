@@ -3,4 +3,118 @@
    uuid = "34FDBB77-C570-4B59-95CD-79BFEDF4F327"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FCF7B5FC-5F19-4DA2-8C09-B941D90D78BF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Login/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "loginWithFacebook"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "FCF7B5FC-5F19-4DA2-8C09-B941D90D78BF - 3092436e5c4165dc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (FBSDKLoginKit.LoginResult) -&gt; () in closure #1 () -&gt; () in Elixr_Connect.LoginView.loginWithFacebook.getter : some"
+                  moduleName = "Elixr-Connect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devasurya/Desktop/Swift%20projects/Elixr-Connect/ElixrConnectApp/Untitled/Login/LoginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "1124">
+               </Location>
+               <Location
+                  uuid = "FCF7B5FC-5F19-4DA2-8C09-B941D90D78BF - 3092436e5c4165dc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (FBSDKLoginKit.LoginResult) -&gt; () in closure #1 () -&gt; () in Elixr_Connect.LoginView.loginWithFacebook.getter : some"
+                  moduleName = "Elixr-Connect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devasurya/Desktop/Swift%20projects/Elixr-Connect/ElixrConnectApp/Untitled/Login/LoginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "1688">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "87AFF4C5-592F-41CB-84EC-94C4CB5AFBF4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Login/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "loginWithFacebook"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "87AFF4C5-592F-41CB-84EC-94C4CB5AFBF4 - 6465c309608e924d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Elixr_Connect.LoginView.loginWithFacebook.getter : some"
+                  moduleName = "Elixr-Connect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devasurya/Desktop/Swift%20projects/Elixr-Connect/ElixrConnectApp/Untitled/Login/LoginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "87AFF4C5-592F-41CB-84EC-94C4CB5AFBF4 - 6465c309608e924d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Elixr_Connect.LoginView.loginWithFacebook.getter : some"
+                  moduleName = "Elixr-Connect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devasurya/Desktop/Swift%20projects/Elixr-Connect/ElixrConnectApp/Untitled/Login/LoginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "528">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4D2CA40-ECE5-4010-9199-3D925BEB89C8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UserDetailsView/UserDetailsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

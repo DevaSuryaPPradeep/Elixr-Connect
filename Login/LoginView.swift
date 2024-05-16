@@ -61,7 +61,7 @@ struct LoginView: View {
                 .padding(3)
             TextField("Type in your user name here", text: $userNameValue)
         }
-        .frame(width: 300,height: 40)
+        .frame(width: 300,height: 60)
         .background(Color.white.opacity(0.3))
         .clipShape(RoundedRectangle(cornerRadius: 5))
         .cornerRadius(10.0)
@@ -75,7 +75,7 @@ struct LoginView: View {
                 .padding(3)
             TextField("Type in your password here", text: $passwordIdValue)
         }
-        .frame(width: 300,height: 40)
+        .frame(width: 300,height: 60)
         .background(Color.white.opacity(0.3))
         .clipShape(RoundedRectangle(cornerRadius: 5))
         .cornerRadius(10.0)
@@ -98,7 +98,7 @@ struct LoginView: View {
             Text("Login")
                 .foregroundStyle(Color.white)
                 .bold()
-                .frame(width: 300, height: 30)
+                .frame(width: 300, height: 50)
                 .background(Color.gray)
                 .clipShape(RoundedRectangle(cornerRadius: 10.0))
         }
@@ -133,21 +133,24 @@ struct LoginView: View {
                 logged = false
             }
             else {
-                loginManager.logIn(permissions: ["public_Profile","email"], from: nil) { (result, errorValue) in
-                    guard let errorValue = errorValue else {
-                        print(errorValue?.localizedDescription ?? "")
-                        return
+                guard let config = LoginConfiguration(permissions: [.publicProfile, .email], tracking: .limited) else {
+                    print("Configuration failed")
+                    return
+                }
+                loginManager.logIn(configuration: config) { completion in
+                    switch completion {
+                    case .success(granted: let grandedSet, declined: let declainedSet, token: let token):
+                        print("grandSet--->\(grandedSet),declainedSet--->\(declainedSet) ,token--->\(String(describing: token))")
+                        if let token = AccessToken.current,
+                                !token.isExpired {
+                            print("isloggedin---->\(isLoggedin)")
+                            isLoggedin.toggle()
+                            }
+                    case .failed(let error):
+                        print(error.localizedDescription)
+                    case .cancelled:
+                        print("Cancelled")
                     }
-                    
-                    guard let result = result, !result.isCancelled else {
-                        return
-                    }
-                    logged = true
-                    let request = GraphRequest(graphPath: "me", parameters: ["Field" : "email"])
-                    request.start { _, returnedResult, _ in
-                        guard let profileData = returnedResult as? [String:Any] else {return}
-                        email = profileData["email"] as? String ?? "Invalid mail"
-                    }                    
                 }
             }
         }label: {
