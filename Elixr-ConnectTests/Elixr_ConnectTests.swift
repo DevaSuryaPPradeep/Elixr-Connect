@@ -6,7 +6,6 @@
 //
 
 import XCTest
-@testable import Elixr_Connect
 
 final class Elixr_ConnectTests: XCTestCase {
 

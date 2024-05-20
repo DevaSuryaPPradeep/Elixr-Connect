@@ -41,8 +41,9 @@ struct LoginView: View {
                     loginWithFacebook
                         .padding()
                     signInPrompt
+                   // logOutButton
                 }
-                .navigationDestination(isPresented: $loginViewModelInstance.isloggedIn) {
+                .navigationDestination(isPresented: $loginViewModelInstance.isLoggedIn) {
                     UserDetailsView()
                 }
             }
@@ -88,7 +89,7 @@ struct LoginView: View {
         Button {
             if  loginViewModelInstance.authenticateUserInputFields(usernameDetails:userNameValue , passwordDetails: passwordIdValue).isvalid {
                 if  loginViewModelInstance.isUserAlreadyExist(userData: UserModel(userName: userNameValue, password: passwordIdValue, phoneNumber: "", emailAddress: "")) {
-                    isLoggedin.toggle()
+                    loginViewModelInstance.isLoggedIn.toggle()
                 }
             }
             else {
@@ -127,7 +128,7 @@ struct LoginView: View {
     private var loginWithFacebook: some View {
         Button {
             if loginViewModelInstance.isAuth {
-                loginViewModelInstance.loginWithFacebook()
+                loginViewModelInstance.loginWithFacebookWithPermissions()
                 print("Authentication Started...")
             }
         }label: {
@@ -147,6 +148,20 @@ struct LoginView: View {
             Alert(title: Text("Alert"),message: Text(loginViewModelInstance.errorMessage))
         })
     }
+    
+//    private var logOutButton: some View {
+//        Button {
+//            loginViewModelInstance.logOut()
+//        }label: {
+//            Text("Log Out")
+//                .font(.headline)
+//                .foregroundStyle(Color.white)
+//                .bold()
+//                .frame(width: 315, height: 50)
+//                .background(Color.blue)
+//                .clipShape(RoundedRectangle(cornerRadius: 10.0))
+//        }
+//    }
 }
 
 

@@ -7,14 +7,14 @@
       <dict>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>fb7490289127756174</string>
+        <string>fb1378298336212451</string>
       </array>
       </dict>
     </array>
     <key>FacebookAppID</key>
-    <string>7490289127756174</string>
+    <string>1378298336212451</string>
     <key>FacebookClientToken</key>
-    <string>1b052e85d19e2b033846a743369ac29d</string>
+    <string>0c3174918d4af1506577c7fb51592fa9</string>
     <key>FacebookDisplayName</key>
     <string>Elixr-Connect</string>
 	<key>LSapplication</key>

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Model for the Login.
 struct LoginModel {
     let usesrName: String
     let password: String

@@ -9,18 +9,18 @@ import Foundation
 import FBSDKLoginKit
 import FBSDKCoreKit
 
-/// Login View Model.
+/// Login view model.
 class LoginViewModel:ObservableObject {
-    
-    /// Declaration of @published property.
-    @Published var dataSource: [UserModel] = []
-    @Published var isloggedIn: Bool = false
-    @Published var facebookLoginModel: FaceboookLoginModel = FaceboookLoginModel(first_name: "", name: "", email: "")
-    @Published var isAuth: Bool = true
-    @Published var errorMessage: String = ""
     
     /// Declaration to acess LoginManager.
     let loginManager: LoginManager = LoginManager()
+    
+    /// Declaration of @published property.
+    @Published var isAuth: Bool = true
+    @Published var isLoggedIn: Bool = false
+    @Published var errorMessage: String = ""
+    @Published var dataSource: [UserModel] = []
+    @Published var facebookLoginModel: FaceboookLoginModel = FaceboookLoginModel(first_name: "", name: "", email: "")
     
     
     /// Function to authenticate user interactive textfields in the view
@@ -54,79 +54,57 @@ class LoginViewModel:ObservableObject {
         guard let savedUsersData = UserDefaults.standard.data(forKey: .savedUsersId),let savedUsers = try?JSONDecoder().decode([UserModel].self, from: savedUsersData) else {
             return []
         }
+        AccessToken.current = nil
+        Profile.current = nil
         print("SavedUsers--->\(savedUsers)")
         return savedUsers
     }
     
-    /// Function to facilitate login with facebook  funcitonality.
-    func loginWithFacebook() {
-        self.isAuth = false
-        guard let config = LoginConfiguration(permissions: [.publicProfile, .email], tracking: .limited) else {
-            print("Configuration failed")
-            return
-        }
-        loginManager.logIn(configuration: config) { completion in
-            switch completion {
-            case .success(granted:let grantedPermissions, declined:let declinedPermissions , token:let accessToken):
-                print(" Logged in! \(grantedPermissions) \(declinedPermissions) accessToken--->\(String(describing: accessToken))")
-                self.isloggedIn.toggle()
-            case .cancelled:
-                print("User cancelled login.")
-            case .failed(let returnedError):
-                self.errorMessage = returnedError.localizedDescription
-                
-                GraphRequest(graphPath: "me", parameters: ["field" : "id, name, first_name, email"]).start { (connection,result, error) in
-                    if error == nil {
-                        let fbProfileDetails = result as? NSDictionary
-                        print(" FB details \(String(describing: fbProfileDetails))")
-                        self.isAuth = true
-                        self.facebookLoginModel.email = fbProfileDetails?.value(forKey: "email") as? String ?? "Invalid email"
-                        self.facebookLoginModel.first_name = fbProfileDetails?.value(forKey: "first_name") as? String ?? "Invalid first_name"
-                        self.facebookLoginModel.id = fbProfileDetails?.value(forKey: "id") as? String ?? "Invalid id"
-                        if let token = AccessToken.current ,!token.isExpired {
-                            print("Token = \(token.tokenString)")
-                        }
-                        else {
-                            print("No valid token found or token is expired")
+    /// Function To  faciltate login with facebook functionality.
+    func loginWithFacebookWithPermissions() {
+        print("User logged out from Facebook")
+        print("isLoggedIn--->\(isLoggedIn),AccessToken---->\(String(describing: AccessToken.current)),profile--->\(String(describing: Profile.current))")
+        let configuredPermissions:[String] = ["public_profile","user_friends","email"]
+        loginManager.logIn(permissions: configuredPermissions, from: nil) { [weak self] loginResult, resulantError in
+            guard let self = self else {
+                return
+            }
+            if resulantError != nil {
+                print("resulantError----->\(String(describing: resulantError))")
+            }
+            else if let loginResult = loginResult, !loginResult.isCancelled {
+                print("grantedPermissions--->\(loginResult.grantedPermissions),declinedPermissions-----> \(loginResult.declinedPermissions), \((loginResult.isCancelled)),token----->\(String(describing: loginResult.token?.tokenString)) ")
+                self.isLoggedIn.toggle()
+                GraphRequest(graphPath: "me/friends", parameters: ["fields": "id, name, first_name, email"]).start(completion: { (connection, result, error) in
+                    if error == nil{
+                        let fbProfileDetails = result as! NSDictionary
+                        print("DEBUG: FB details \(fbProfileDetails)")
+                        self.facebookLoginModel.email = fbProfileDetails.value(forKey: "email") as? String ?? "Invalid email"
+                        self.facebookLoginModel.id = fbProfileDetails.value(forKey: "id") as? String ??  "invalid id"
+                        self.facebookLoginModel.name = fbProfileDetails.value(forKey: "name") as? String ?? "Invalid name"
+                        if let token = AccessToken.current, !token.isExpired {
+                            print("DEBUG: Token=\(token.tokenString)")
                         }
                     }
-                    else {
-                        print("Unexpected result:\(String(describing: result))")
-                    }
+                }
+                ) }
+            else {
+                if let cancelled = loginResult?.isCancelled {
+                    cancelled ?  print("User cancelled the login."): print("Failed with error \(String(describing: resulantError?.localizedDescription))")
                 }
             }
         }
     }
+    
+    /// Function to perform log out funtionality.
+    func logOut() {
+        loginManager.logOut()
+        self.isLoggedIn = false
+        self.facebookLoginModel = FaceboookLoginModel(first_name: "", name: "", email: "") // Reset the model
+        AccessToken.current = nil
+        Profile.current = nil
+        print("User logged out from Facebook")
+        print("isLoggedIn--->\(isLoggedIn),AccessToken---->\(String(describing: AccessToken.current)),profile--->\(String(describing: Profile.current))")
+    }
 }
 
-
-
-
-
-
-//
-//    func logout() {
-//        self.facebookLoginModel.email = ""
-//        self.facebookLoginModel.first_name = ""
-//        self.facebookLoginModel.id = ""
-//        self.facebookLoginModel.name = ""
-//    }
-//}
-//    func loginWithFacebook() {
-//        guard let config = LoginConfiguration(permissions: [.publicProfile, .email], tracking: .limited) else {
-//            print("Configuration failed")
-//            return
-////        }
-//        loginManager.logIn(configuration: config) { completion in
-//            switch completion {
-//            case .success(granted: let grandedSet, declined: let declainedSet, token: let token):
-//                print("grandSet--->\(grandedSet),declainedSet--->\(declainedSet) ,token--->\(String(describing: token))")
-//                if ((token?.isExpired) == nil) {
-//                    self.isloggedIn.toggle()
-//                }
-//            case .failed(let error):
-//                print(error.localizedDescription)
-//            case .cancelled:
-//                print("Cancelled")
-//            }
-//        }

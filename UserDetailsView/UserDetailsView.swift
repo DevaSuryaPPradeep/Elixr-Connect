@@ -16,72 +16,35 @@ struct UserDetailsView: View {
     
     var body: some View {
         List {
-            ForEach(viewModelInstance.dataProvider,id: \.self) {
-                details in
-                HStack {
+            ForEach(viewModelInstance.dataProvider, id: \.self) {details in
+                HStack{
                     Image("Icon1")
-                        .resizable().frame(width: 50,height: 50)
-                        .scaledToFit()
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50,height: 50)
+                        .clipped()
+                        .clipShape(Circle())
                     Text(details.userName)
-                Spacer()
+                        .bold()
+                    Spacer()
                     Image(systemName: "phone.fill")
-                        .foregroundColor(.green)
                         .onTapGesture {
                             viewModelInstance.performCall(phoneNumber: details.phoneNumber)
                         }
                 }
             }
-            .navigationTitle(Text("User Details View."))
+            .listStyle(.inset)
+        }
+        List(viewModelInstance.friends,id: \.self) {fetchedDetails in
+            Text(fetchedDetails)
         }
         .onAppear(perform: {
-            viewModelInstance.dataReceiver()
+            viewModelInstance.fetchFriendList(cursor: nil)
         })
-    }
-    
-    /// View representing rounded rectangle view.
-    private var roundedRectangleView: some View{
-        RoundedRectangle(cornerRadius: 10.0)
-            .stroke(style: StrokeStyle())
+        .navigationTitle(Text("User Details View."))
     }
 }
 
 #Preview {
     UserDetailsView()
 }
-//                        VStack{
-//                            Text("Username")
-//                                .bold()
-//                            Text(details.userName)
-//                            Spacer()
-//                            HStack {
-//                                VStack{
-//                                    Text("Email Address")
-//                                        .bold()
-//                                    Text(details.emailAddress)
-//                                        .font(.subheadline)
-//                                }
-//                                Spacer()
-//                                VStack{
-//                                    Text("Personal Number")
-//                                        .bold()
-//                                    Text(details.phoneNumber)
-//                                        .font(.subheadline)
-//                                }
-//                                Button {
-//                                    viewModelInstance.performCall(phoneNumber: details.phoneNumber)
-//                                }
-//                            label: {
-//                                Image(systemName: "phone.fill")
-//                                    .foregroundStyle(Color.cyan)
-//                            }
-//                                Spacer()
-//                                Text("Teams")
-//                                    .onTapGesture {
-//                                        viewModelInstance.connectWithTeams()
-//                                    }
-//                            }
-//                            Spacer()
-//                        }
-//                        .padding()
-//                    }
-//                    .listStyle(.inset)
