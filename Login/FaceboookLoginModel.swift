@@ -13,4 +13,5 @@ struct FaceboookLoginModel {
     var first_name: String
     var name: String
     var email: String
+    var friendsFirstName: String
 }

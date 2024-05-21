@@ -22,7 +22,7 @@ struct LoginView: View {
     @State private var isLoggedin: Bool = false
     @State private var alertBool: Bool = false
     
-    /// Binding property declaration.
+    /// Binding property declarations.
     @Binding var isLoginKey: Bool
     @Binding var isSignKey: Bool
     
@@ -41,7 +41,7 @@ struct LoginView: View {
                     loginWithFacebook
                         .padding()
                     signInPrompt
-                   // logOutButton
+                    // logOutButton
                 }
                 .navigationDestination(isPresented: $loginViewModelInstance.isLoggedIn) {
                     UserDetailsView()
@@ -127,10 +127,8 @@ struct LoginView: View {
     /// View containig "Login with facebook" button.
     private var loginWithFacebook: some View {
         Button {
-            if loginViewModelInstance.isAuth {
-                loginViewModelInstance.loginWithFacebookWithPermissions()
-                print("Authentication Started...")
-            }
+            loginViewModelInstance.loginWithFacebookWithPermissions()
+            print("Authentication Started...")
         }label: {
             HStack {
                 Text("Login with Facebook")
@@ -148,20 +146,6 @@ struct LoginView: View {
             Alert(title: Text("Alert"),message: Text(loginViewModelInstance.errorMessage))
         })
     }
-    
-//    private var logOutButton: some View {
-//        Button {
-//            loginViewModelInstance.logOut()
-//        }label: {
-//            Text("Log Out")
-//                .font(.headline)
-//                .foregroundStyle(Color.white)
-//                .bold()
-//                .frame(width: 315, height: 50)
-//                .background(Color.blue)
-//                .clipShape(RoundedRectangle(cornerRadius: 10.0))
-//        }
-//    }
 }
 
 

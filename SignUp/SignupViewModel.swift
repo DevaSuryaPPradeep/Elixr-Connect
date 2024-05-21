@@ -57,7 +57,7 @@ class SignupViewModel: ObservableObject {
         }
         dataSource.append(modelInstance)
         persistData(inputData: dataSource)
-        return(true,"User creation successfull.") 
+        return(true,"User creation successfull.")
     }
     
     /// Function check whether a user is already existed or not .
